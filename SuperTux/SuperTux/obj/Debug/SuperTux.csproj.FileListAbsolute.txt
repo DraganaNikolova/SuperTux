@@ -1,0 +1,10 @@
+C:\Users\stoja\source\repos\SuperTux\SuperTux\bin\Debug\SuperTux.exe.config
+C:\Users\stoja\source\repos\SuperTux\SuperTux\bin\Debug\SuperTux.exe
+C:\Users\stoja\source\repos\SuperTux\SuperTux\bin\Debug\SuperTux.pdb
+C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.csprojAssemblyReference.cache
+C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.Form1.resources
+C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.Properties.Resources.resources
+C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.csproj.GenerateResource.cache
+C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.csproj.CoreCompileInputs.cache
+C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.exe
+C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.pdb
