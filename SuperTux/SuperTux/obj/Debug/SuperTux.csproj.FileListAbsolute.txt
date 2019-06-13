@@ -8,3 +8,4 @@ C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.csproj.Generate
 C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.csproj.CoreCompileInputs.cache
 C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.exe
 C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.pdb
+C:\Users\stoja\source\repos\SuperTux\SuperTux\obj\Debug\SuperTux.MenuForm.resources

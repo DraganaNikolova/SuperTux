@@ -81,15 +81,15 @@
             this.screen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.screen.Location = new System.Drawing.Point(0, 0);
             this.screen.Name = "screen";
-            this.screen.Size = new System.Drawing.Size(1082, 590);
+            this.screen.Size = new System.Drawing.Size(1118, 590);
             this.screen.TabIndex = 1;
             // 
             // obstacle1
             // 
             this.obstacle1.Image = ((System.Drawing.Image)(resources.GetObject("obstacle1.Image")));
-            this.obstacle1.Location = new System.Drawing.Point(534, 422);
+            this.obstacle1.Location = new System.Drawing.Point(534, 442);
             this.obstacle1.Name = "obstacle1";
-            this.obstacle1.Size = new System.Drawing.Size(144, 94);
+            this.obstacle1.Size = new System.Drawing.Size(144, 74);
             this.obstacle1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.obstacle1.TabIndex = 12;
             this.obstacle1.TabStop = false;
@@ -99,7 +99,7 @@
             this.groupBox1.Controls.Add(this.lblTime);
             this.groupBox1.Controls.Add(this.lblLifes);
             this.groupBox1.Controls.Add(this.lblCoins);
-            this.groupBox1.Location = new System.Drawing.Point(57, 3);
+            this.groupBox1.Location = new System.Drawing.Point(253, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(621, 74);
             this.groupBox1.TabIndex = 11;
@@ -192,9 +192,12 @@
             // mainPlatform
             // 
             this.mainPlatform.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.mainPlatform.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainPlatform.Image = ((System.Drawing.Image)(resources.GetObject("mainPlatform.Image")));
             this.mainPlatform.Location = new System.Drawing.Point(0, 518);
             this.mainPlatform.Name = "mainPlatform";
-            this.mainPlatform.Size = new System.Drawing.Size(1082, 72);
+            this.mainPlatform.Size = new System.Drawing.Size(1116, 72);
+            this.mainPlatform.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mainPlatform.TabIndex = 1;
             this.mainPlatform.TabStop = false;
             // 
@@ -219,8 +222,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 590);
+            this.ClientSize = new System.Drawing.Size(1118, 590);
             this.Controls.Add(this.screen);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "SuperTux";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

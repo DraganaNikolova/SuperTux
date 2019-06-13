@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace SuperTux
 {
     public partial class Form1 : Form
-    {
+    {  
         List<PictureBox> blocks { set; get; }
         List<PictureBox> coins { set; get; }
         List<PictureBox> obstacles { set; get; }
@@ -23,8 +23,34 @@ namespace SuperTux
         private int NumberCoins { set; get; }
         private int Lifes { set; get; }
         private int Seconds { set; get; }
+
+        //promenlivi so koj se cuva izborot na igracot, za hard ili easy
+        private bool Easy { set; get; }
+        private bool Hard { set; get; }
+
         public Form1()
         {
+            // na pocetokot se pojavuva menu strana kade otkako ke izbereme easy ili hard se vklucuva igrata spored soodvetna izbranata opcija
+            MenuForm form = new MenuForm();
+            DialogResult result = form.ShowDialog();
+            this.Hide();
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Show();
+                Easy = true;
+                Hard = false;
+            }
+            else if (result == System.Windows.Forms.DialogResult.No)
+            {
+                this.Show();
+                Hard = true;
+                Easy = false;
+            }
+            else{ 
+                Application.Exit();
+            }
+            //
+
             InitializeComponent();
             Lifes = 3;
             lblLifes.Text = "LIFES: 3";
@@ -42,6 +68,7 @@ namespace SuperTux
             coins.Add(coin4);
 
             obstacles.Add(obstacle1);
+
             newGame();
 
             this.DoubleBuffered = true;
