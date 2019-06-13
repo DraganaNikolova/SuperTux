@@ -61,11 +61,14 @@ namespace SuperTux
 
             blocks.Add(block1);
             blocks.Add(block2);
-            
+
             coins.Add(coin1);
             coins.Add(coin2);
             coins.Add(coin3);
             coins.Add(coin4);
+            coins.Add(coin5);
+            coins.Add(coin6);
+            coins.Add(coin7);
 
             obstacles.Add(obstacle1);
 
@@ -140,8 +143,9 @@ namespace SuperTux
                 }
                 //kolizija na gornata strana od preprekite
                 if(penguin.Left + penguin.Width -1 > p.Left && penguin.Left + penguin.Width + 5 < p.Left + p.Width + penguin.Width && penguin.Top + penguin.Height >= p.Top && penguin.Top < p.Top)
-                {
-                    // penguin.Top = screen.Height -  mainPlatform.Height - p.Height - penguin.Height;
+                {                   
+                    //penguin.Top = screen.Height  - p.Height - penguin.Height - p.Bottom - 5;
+                    //penguin.Top = screen.Height - mainPlatform.Height - p.Bottom - p.Height - penguin.Height;
                     penguin.Top = screen.Height - mainPlatform.Height - p.Height - penguin.Height - (screen.Height - p.Top - p.Height - mainPlatform.Height) - 15;
                     Force = 0;
                     jump = false;

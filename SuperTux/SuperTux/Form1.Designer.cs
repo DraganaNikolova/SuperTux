@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timerMovements = new System.Windows.Forms.Timer(this.components);
             this.screen = new System.Windows.Forms.Panel();
+            this.coin7 = new System.Windows.Forms.PictureBox();
+            this.coin6 = new System.Windows.Forms.PictureBox();
+            this.coin5 = new System.Windows.Forms.PictureBox();
             this.obstacle1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTime = new System.Windows.Forms.Label();
@@ -48,6 +51,9 @@
             this.timerWindow = new System.Windows.Forms.Timer(this.components);
             this.timerLife = new System.Windows.Forms.Timer(this.components);
             this.screen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.coin7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.coin4)).BeginInit();
@@ -68,6 +74,9 @@
             // 
             // screen
             // 
+            this.screen.Controls.Add(this.coin7);
+            this.screen.Controls.Add(this.coin6);
+            this.screen.Controls.Add(this.coin5);
             this.screen.Controls.Add(this.obstacle1);
             this.screen.Controls.Add(this.groupBox1);
             this.screen.Controls.Add(this.coin4);
@@ -83,6 +92,33 @@
             this.screen.Name = "screen";
             this.screen.Size = new System.Drawing.Size(1118, 590);
             this.screen.TabIndex = 1;
+            // 
+            // coin7
+            // 
+            this.coin7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.coin7.Location = new System.Drawing.Point(587, 132);
+            this.coin7.Name = "coin7";
+            this.coin7.Size = new System.Drawing.Size(41, 37);
+            this.coin7.TabIndex = 16;
+            this.coin7.TabStop = false;
+            // 
+            // coin6
+            // 
+            this.coin6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.coin6.Location = new System.Drawing.Point(587, 185);
+            this.coin6.Name = "coin6";
+            this.coin6.Size = new System.Drawing.Size(41, 37);
+            this.coin6.TabIndex = 15;
+            this.coin6.TabStop = false;
+            // 
+            // coin5
+            // 
+            this.coin5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.coin5.Location = new System.Drawing.Point(587, 238);
+            this.coin5.Name = "coin5";
+            this.coin5.Size = new System.Drawing.Size(41, 37);
+            this.coin5.TabIndex = 14;
+            this.coin5.TabStop = false;
             // 
             // obstacle1
             // 
@@ -230,6 +266,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.screen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.coin7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -263,6 +302,9 @@
         private System.Windows.Forms.Timer timerLife;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox obstacle1;
+        private System.Windows.Forms.PictureBox coin7;
+        private System.Windows.Forms.PictureBox coin6;
+        private System.Windows.Forms.PictureBox coin5;
     }
 }
 
