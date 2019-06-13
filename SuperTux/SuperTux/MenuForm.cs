@@ -19,6 +19,7 @@ namespace SuperTux
             InitializeComponent();
             canExit = true;
             this.Cursor = CreateCursor((Bitmap)imageList1.Images[0], new Size(120, 100));
+            this.DoubleBuffered = true;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
