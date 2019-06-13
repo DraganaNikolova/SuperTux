@@ -18,6 +18,7 @@ namespace SuperTux
         {
             InitializeComponent();
             canExit = true;
+            this.Cursor = CreateCursor((Bitmap)imageList1.Images[0], new Size(120, 100));
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -43,6 +44,13 @@ namespace SuperTux
         {
             if(canExit)
                 Application.Exit();
+        }
+
+        private static Cursor CreateCursor(Bitmap bm, Size size)
+        {
+            bm = new Bitmap(bm, size);
+            bm.MakeTransparent();
+            return new Cursor(bm.GetHicon());
         }
     }
 }
