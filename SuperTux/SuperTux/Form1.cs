@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperTux.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,6 @@ namespace SuperTux
         List<PictureBox> blocks { set; get; }
         List<PictureBox> coins { set; get; }
         List<PictureBox> obstacles { set; get; }
-        List<Panel> panels { set; get; }
         private bool right;
         private bool left;
         bool jump;
@@ -25,15 +25,17 @@ namespace SuperTux
         private int Lifes { set; get; }
         private int Seconds { set; get; }
 
+        private BallsDoc ballsDoc;
+        private int generateBall;
+        private Random random;
+        private Random random2;
+
         //promenlivi so koj se cuva izborot na igracot, za hard ili easy
         private bool Easy { set; get; }
         private bool Hard { set; get; }
 
         private MenuForm form { set; get; }
         private DialogResult result { set; get; }
-
-        int index = 0; //potrebno za menuvanje na paneli
-        
 
         public Form1()
         {
@@ -64,22 +66,23 @@ namespace SuperTux
             //
 
             InitializeComponent();
-            Lifes = 3;
-            lblLifes.Text = "LIFES: 3";
+            if (Easy == true)
+                Lifes = 3;
+            else if(Hard == true)
+                Lifes = 1;
+            lblLifes.Text = "LIFES: " + Lifes.ToString();
             NumberCoins = 0;
             blocks = new List<PictureBox>();
             coins = new List<PictureBox>();
             obstacles = new List<PictureBox>();
-            panels = new List<Panel>();
-
-            panels.Add(screen1);
-          //  panels.Add(screen2);
-
-            //panels[0].BringToFront();
-            Invalidate();
 
             blocks.Add(block1);
             blocks.Add(block2);
+            blocks.Add(block3);
+            blocks.Add(block4);
+            blocks.Add(block5);
+            blocks.Add(block6);
+            blocks.Add(block7);
 
             coins.Add(coin1);
             coins.Add(coin2);
@@ -88,10 +91,25 @@ namespace SuperTux
             coins.Add(coin5);
             coins.Add(coin6);
             coins.Add(coin7);
+            coins.Add(coin8);
+            coins.Add(coin9);
+            coins.Add(coin10);
+            coins.Add(coin11);
+            coins.Add(coin12);
 
             obstacles.Add(obstacle1);
+            obstacles.Add(obstacle2);
+            obstacles.Add(obstacle3);
+            obstacles.Add(eater1);
+            obstacles.Add(eater2);
+
+            ballsDoc = new BallsDoc();
+            generateBall = 0;
+            random = new Random();
+            random2 = new Random();
 
             newGame();
+            timerBalls.Start();
 
             this.DoubleBuffered = true;
         }
@@ -100,28 +118,33 @@ namespace SuperTux
         {
             penguin.Location = new Point(94, 274);
             Invalidate();
-            index = 0;
+
             //timer koj odbrojuva 300 sekundi, koga ke pominat a ako pingvinot ne stignal do kukjata se gubi zhivot
             Seconds = 300;
             timerLife = new Timer();
             timerLife.Tick += new EventHandler(timerLife_Tick);
-            timerLife.Interval = 1000; // 1 sekunda
+            timerLife.Interval = 400; // 1 sekunda
             timerLife.Start();
             lblTime.Text = "TIME: " + Seconds.ToString();
 
             timerMovements.Interval = 1;
             timerCountLifes.Start();
-           // timerWindow.Start();
 
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
+            {
                 right = true;
+                penguin.BackgroundImage = Resources.walk_0;
+            }
+                
             if (e.KeyCode == Keys.Left)
+            { 
                 left = true;
-
+                penguin.BackgroundImage = Resources.walk_1;
+            }
             if(jump != true)
             {
                 if(e.KeyCode == Keys.Space || e.KeyCode == Keys.Up)
@@ -134,11 +157,28 @@ namespace SuperTux
 
         private void timerMovements_Tick(object sender, EventArgs e)
         {
+            //pingvinot stiga do kukjickata
+            if(GOAL.Left <= penguin.Left + penguin.Width - 5)//GOAL.Right <= penguin.Right && penguin.Right <= GOAL.Right + GOAL.Width && GOAL.Bottom + GOAL.Height >= penguin.Bottom && GOAL.Bottom <= penguin.Bottom)
+            {
+                timerMovements.Stop();
+                var result = MessageBox.Show("YOU WON ! PLAY AGAIN ?", "SuperTux", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    Application.Exit();
+                }
+                else if (result == DialogResult.Yes)
+                {
+                    Application.Restart();
+                }
+            }
+            //
+
             //sobiranje na paricki
-            for(int i=coins.Count-1; i>=0; i--)
+            for (int i = coins.Count - 1; i >= 0; i--)
             {
                 PictureBox coin = coins[i];
-                if ( coin.Right <= penguin.Right && penguin.Right <= coin.Right + coin.Width)
+                
+                if (coin.Right <= penguin.Right && penguin.Right <= coin.Right + coin.Width && coin.Bottom + coin.Height >= penguin.Bottom && coin.Bottom <= penguin.Bottom)
                 {
                     coins.Remove(coin);
                     screen1.Controls.Remove(coin);
@@ -153,22 +193,25 @@ namespace SuperTux
             foreach (PictureBox p in blocks)
             {
                 //kolizija na desna ili leva strana od prepreka
-                if(penguin.Right > p.Left && penguin.Left < (p.Right - penguin.Width / 2) && penguin.Bottom > p.Top)
+                if(penguin.Right > p.Left && penguin.Left < (p.Right - penguin.Width ) && penguin.Bottom < p.Bottom && penguin.Bottom > p.Top && penguin.Top < p.Bottom)
                 {
                     right = false;
                 }
-                if (penguin.Left < p.Right && penguin.Right > (p.Right - penguin.Width / 2) && penguin.Bottom > p.Top)
+                if (penguin.Left < p.Right && penguin.Right > (p.Right - penguin.Width) && penguin.Bottom < p.Bottom && penguin.Bottom > p.Top && penguin.Top < p.Bottom)
                 {
                     left = false;
                 }
                 //kolizija na gornata strana od preprekite
-                if(penguin.Left + penguin.Width -1 > p.Left && penguin.Left + penguin.Width + 5 < p.Left + p.Width + penguin.Width && penguin.Top + penguin.Height >= p.Top && penguin.Top < p.Top)
-                {                   
-                    //penguin.Top = screen.Height  - p.Height - penguin.Height - p.Bottom - 5;
-                    //penguin.Top = screen.Height - mainPlatform.Height - p.Bottom - p.Height - penguin.Height;
-                    penguin.Top = screen1.Height - mainPlatform.Height - p.Height - penguin.Height - (screen1.Height - p.Top - p.Height - mainPlatform.Height) - 15;
-                    Force = 0;
+                if(penguin.Left + penguin.Width > p.Left && penguin.Left + penguin.Width  < p.Left + p.Width + penguin.Width && penguin.Top + penguin.Height >= p.Top && penguin.Top < p.Top)
+                {
+                    penguin.Top = p.Location.Y - penguin.Height - 10;
                     jump = false;
+                    Force = 0;
+                }
+                //kolizija na dolnata strana od preprekite
+                if (penguin.Left + penguin.Width > p.Left && penguin.Left + penguin.Width  < p.Left + p.Width + penguin.Width && penguin.Top - p.Bottom <= 10  && penguin.Top - p.Top >= 10)
+                {
+                    Force = -1;
                 }
             }
             //
@@ -203,7 +246,7 @@ namespace SuperTux
                 //kolizija na desna ili leva strana od prepreka
                 if (penguin.Right > o.Left && penguin.Left < (o.Right - penguin.Width / 2) && penguin.Bottom > o.Top)
                 {
-                    flag = true; 
+                    flag = true;
                 }
                 if (penguin.Left < o.Right && penguin.Right > (o.Right - penguin.Width / 2) && penguin.Bottom > o.Top)
                 {
@@ -211,7 +254,12 @@ namespace SuperTux
                 }
                 //kolizija na gornata strana od preprekite
                 if (penguin.Left + penguin.Width - 1 > o.Left && penguin.Left + penguin.Width + 5 < o.Left + o.Width + penguin.Width && penguin.Top + penguin.Height >= o.Top && penguin.Top < o.Top)
-                {                   
+                {
+                    flag = true;
+                }
+                //kolizija na dolnata strana od preprekite
+                if (penguin.Left + penguin.Width > o.Left && penguin.Left + penguin.Width < o.Left + o.Width + penguin.Width && penguin.Top - o.Bottom <= 10 && penguin.Top - o.Top >= 10)
+                {
                     flag = true;
                 }
                 if (flag)
@@ -223,14 +271,23 @@ namespace SuperTux
                 }
             }
             //
+            
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
+            {
                 right = false;
+                penguin.BackgroundImage = Resources.stand_0;
+            }
             if (e.KeyCode == Keys.Left)
+            {
                 left = false;
+                penguin.BackgroundImage = Resources.stand_0;
+            }
+                
         }
         
         private void timerLife_Tick(object sender, EventArgs e)
@@ -244,11 +301,22 @@ namespace SuperTux
                 timerLife.Stop();
                 newGame();
             }
+            
+            int y2 = random2.Next(-5, 5);
+            eater1.Top += y2;
+
+            int y3 = random2.Next(-5, 5);
+            eater2.Left += y3;
+
+
             lblTime.Text = "TIME: " + Seconds.ToString();
             lblLifes.Text = "LIFES: " + Lifes.ToString();
+            
+            Invalidate(true);
 
             if(Lifes == 0)
             {
+                timerLife.Stop();
                 GameOver formp = new GameOver();
                 DialogResult resultp = formp.ShowDialog();
                 if (resultp == System.Windows.Forms.DialogResult.Yes)
@@ -260,19 +328,28 @@ namespace SuperTux
                 }
             }
         }
-
-        private void timerWindow_Tick(object sender, EventArgs e)
-        {
-            //if (NumberCoins >= 3) { 
-             //   index++;
-            //    if (index < panels.Count - 1)
-            //        panels[index].BringToFront();
-            //}
-        }
-
+        
         private void timerCountLifes_Tick(object sender, EventArgs e)
         {
             lblLifes.Text = "LIFES: " + Lifes.ToString();
         }
+
+        private void screen1_Paint(object sender, PaintEventArgs e)
+        {
+            ballsDoc.Draw(e.Graphics);
+        }
+
+        private void timerBalls_Tick(object sender, EventArgs e)
+        {
+            if (generateBall % 10 == 0)
+            {
+                int x = random.Next(2 * Ball.RADIUS, Height + (Ball.RADIUS * 2));
+                int y = -Ball.RADIUS;
+                ballsDoc.AddBall(new Point(x, y));
+            }
+            ++generateBall;
+            ballsDoc.Move(Width);
+        }
+        
     }
 }

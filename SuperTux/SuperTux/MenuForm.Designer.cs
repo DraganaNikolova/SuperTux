@@ -31,38 +31,144 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.screen = new System.Windows.Forms.Panel();
+            this.flake8 = new System.Windows.Forms.PictureBox();
+            this.flake7 = new System.Windows.Forms.PictureBox();
+            this.flake4 = new System.Windows.Forms.PictureBox();
+            this.flake2 = new System.Windows.Forms.PictureBox();
+            this.flake3 = new System.Windows.Forms.PictureBox();
+            this.flake5 = new System.Windows.Forms.PictureBox();
+            this.flake6 = new System.Windows.Forms.PictureBox();
+            this.flake1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnHard = new System.Windows.Forms.Button();
             this.btnEasy = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.timerFlake = new System.Windows.Forms.Timer(this.components);
             this.screen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flake8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // screen
             // 
+            this.screen.BackColor = System.Drawing.SystemColors.MenuBar;
             this.screen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("screen.BackgroundImage")));
             this.screen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.screen.Controls.Add(this.flake8);
+            this.screen.Controls.Add(this.flake7);
+            this.screen.Controls.Add(this.flake4);
+            this.screen.Controls.Add(this.flake2);
+            this.screen.Controls.Add(this.flake3);
+            this.screen.Controls.Add(this.flake5);
+            this.screen.Controls.Add(this.flake6);
+            this.screen.Controls.Add(this.flake1);
             this.screen.Controls.Add(this.panel1);
             this.screen.Controls.Add(this.pbLogo);
             this.screen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.screen.Location = new System.Drawing.Point(0, 0);
             this.screen.Name = "screen";
-            this.screen.Size = new System.Drawing.Size(1116, 590);
+            this.screen.Size = new System.Drawing.Size(1263, 657);
             this.screen.TabIndex = 0;
+            // 
+            // flake8
+            // 
+            this.flake8.BackColor = System.Drawing.Color.Transparent;
+            this.flake8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.flake8.Location = new System.Drawing.Point(1018, 439);
+            this.flake8.Name = "flake8";
+            this.flake8.Size = new System.Drawing.Size(108, 101);
+            this.flake8.TabIndex = 10;
+            this.flake8.TabStop = false;
+            // 
+            // flake7
+            // 
+            this.flake7.BackColor = System.Drawing.Color.Transparent;
+            this.flake7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.flake7.Location = new System.Drawing.Point(895, 302);
+            this.flake7.Name = "flake7";
+            this.flake7.Size = new System.Drawing.Size(108, 101);
+            this.flake7.TabIndex = 9;
+            this.flake7.TabStop = false;
+            // 
+            // flake4
+            // 
+            this.flake4.BackColor = System.Drawing.Color.Transparent;
+            this.flake4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.flake4.Location = new System.Drawing.Point(205, 424);
+            this.flake4.Name = "flake4";
+            this.flake4.Size = new System.Drawing.Size(108, 101);
+            this.flake4.TabIndex = 8;
+            this.flake4.TabStop = false;
+            // 
+            // flake2
+            // 
+            this.flake2.BackColor = System.Drawing.Color.Transparent;
+            this.flake2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.flake2.Location = new System.Drawing.Point(315, 93);
+            this.flake2.Name = "flake2";
+            this.flake2.Size = new System.Drawing.Size(108, 101);
+            this.flake2.TabIndex = 7;
+            this.flake2.TabStop = false;
+            // 
+            // flake3
+            // 
+            this.flake3.BackColor = System.Drawing.Color.Transparent;
+            this.flake3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.flake3.Location = new System.Drawing.Point(326, 302);
+            this.flake3.Name = "flake3";
+            this.flake3.Size = new System.Drawing.Size(108, 101);
+            this.flake3.TabIndex = 6;
+            this.flake3.TabStop = false;
+            // 
+            // flake5
+            // 
+            this.flake5.BackColor = System.Drawing.Color.Transparent;
+            this.flake5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.flake5.Location = new System.Drawing.Point(932, 106);
+            this.flake5.Name = "flake5";
+            this.flake5.Size = new System.Drawing.Size(108, 101);
+            this.flake5.TabIndex = 5;
+            this.flake5.TabStop = false;
+            // 
+            // flake6
+            // 
+            this.flake6.BackColor = System.Drawing.Color.Transparent;
+            this.flake6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.flake6.Location = new System.Drawing.Point(1053, 239);
+            this.flake6.Name = "flake6";
+            this.flake6.Size = new System.Drawing.Size(108, 101);
+            this.flake6.TabIndex = 4;
+            this.flake6.TabStop = false;
+            // 
+            // flake1
+            // 
+            this.flake1.BackColor = System.Drawing.Color.Transparent;
+            this.flake1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.flake1.Location = new System.Drawing.Point(175, 209);
+            this.flake1.Name = "flake1";
+            this.flake1.Size = new System.Drawing.Size(108, 101);
+            this.flake1.TabIndex = 3;
+            this.flake1.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnHard);
             this.panel1.Controls.Add(this.btnEasy);
             this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Location = new System.Drawing.Point(381, 266);
+            this.panel1.Location = new System.Drawing.Point(489, 302);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(323, 177);
             this.panel1.TabIndex = 2;
@@ -118,7 +224,7 @@
             // 
             this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(398, 70);
+            this.pbLogo.Location = new System.Drawing.Point(506, 106);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(290, 160);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -131,12 +237,17 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "mousecursor.png");
             // 
+            // timerFlake
+            // 
+            this.timerFlake.Interval = 700;
+            this.timerFlake.Tick += new System.EventHandler(this.timerFlake_Tick);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1116, 590);
+            this.ClientSize = new System.Drawing.Size(1263, 657);
             this.Controls.Add(this.screen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -146,6 +257,14 @@
             this.Text = "SuperTux";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuForm_FormClosed);
             this.screen.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.flake8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flake1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
@@ -162,5 +281,14 @@
         private System.Windows.Forms.Button btnHard;
         private System.Windows.Forms.Button btnEasy;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox flake1;
+        private System.Windows.Forms.Timer timerFlake;
+        private System.Windows.Forms.PictureBox flake4;
+        private System.Windows.Forms.PictureBox flake2;
+        private System.Windows.Forms.PictureBox flake3;
+        private System.Windows.Forms.PictureBox flake5;
+        private System.Windows.Forms.PictureBox flake6;
+        private System.Windows.Forms.PictureBox flake8;
+        private System.Windows.Forms.PictureBox flake7;
     }
 }

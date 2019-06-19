@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ball.cs" />
+    <Compile Include="BallDoc.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -96,6 +99,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\83089660-big-translucent-christmas-snowflake-in-light-blue-colors-on-transparent-background-transparency-only.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageedit_2_4429938632.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ttt1%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snowflake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imageedit_8_9119903981.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walk-0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\walk-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stand-0.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
