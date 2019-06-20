@@ -16,6 +16,7 @@ namespace SuperTux
         List<PictureBox> blocks { set; get; }
         List<PictureBox> coins { set; get; }
         List<PictureBox> obstacles { set; get; }
+        List<PictureBox> eaters { set; get; }
         private bool right;
         private bool left;
         bool jump;
@@ -72,9 +73,11 @@ namespace SuperTux
                 Lifes = 1;
             lblLifes.Text = "LIFES: " + Lifes.ToString();
             NumberCoins = 0;
+
             blocks = new List<PictureBox>();
             coins = new List<PictureBox>();
             obstacles = new List<PictureBox>();
+            eaters = new List<PictureBox>();
 
             blocks.Add(block1);
             blocks.Add(block2);
@@ -100,8 +103,9 @@ namespace SuperTux
             obstacles.Add(obstacle1);
             obstacles.Add(obstacle2);
             obstacles.Add(obstacle3);
-            obstacles.Add(eater1);
-            obstacles.Add(eater2);
+
+            eaters.Add(eater1);
+            eaters.Add(eater2);
 
             ballsDoc = new BallsDoc();
             generateBall = 0;
@@ -123,7 +127,7 @@ namespace SuperTux
             Seconds = 300;
             timerLife = new Timer();
             timerLife.Tick += new EventHandler(timerLife_Tick);
-            timerLife.Interval = 400; // 1 sekunda
+            timerLife.Interval = 500; // pola sekunda
             timerLife.Start();
             lblTime.Text = "TIME: " + Seconds.ToString();
 
@@ -161,14 +165,14 @@ namespace SuperTux
             if(GOAL.Left <= penguin.Left + penguin.Width - 5)//GOAL.Right <= penguin.Right && penguin.Right <= GOAL.Right + GOAL.Width && GOAL.Bottom + GOAL.Height >= penguin.Bottom && GOAL.Bottom <= penguin.Bottom)
             {
                 timerMovements.Stop();
-                var result = MessageBox.Show("YOU WON ! PLAY AGAIN ?", "SuperTux", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.No)
+                Win formp = new Win();
+                DialogResult resultw = formp.ShowDialog();
+                if (resultw == System.Windows.Forms.DialogResult.Yes)
+                {
+                }
+                else
                 {
                     Application.Exit();
-                }
-                else if (result == DialogResult.Yes)
-                {
-                    Application.Restart();
                 }
             }
             //
@@ -215,29 +219,7 @@ namespace SuperTux
                 }
             }
             //
-
-            //dvizenje i skokanje na pingvinot
-            if (right == true)
-                penguin.Left += 3;
-            if(left == true)
-                penguin.Left -= 3;
-
-            if(jump == true)
-            {
-                penguin.Top = penguin.Top - Force;
-                Force -= 1;
-            }
-
-            if(penguin.Top + penguin.Height >= (screen1.Height - mainPlatform.Height))
-            {
-                penguin.Top = screen1.Height - penguin.Height - mainPlatform.Height;
-                jump = false;
-            }
-            else
-            {
-                penguin.Top += 5;
-            }
-            //
+            
 
             //kolizija so nekoja od preprekite koi go ubivaat
             foreach (PictureBox o in obstacles)
@@ -253,8 +235,9 @@ namespace SuperTux
                     flag = true;
                 }
                 //kolizija na gornata strana od preprekite
-                if (penguin.Left + penguin.Width - 1 > o.Left && penguin.Left + penguin.Width + 5 < o.Left + o.Width + penguin.Width && penguin.Top + penguin.Height >= o.Top && penguin.Top < o.Top)
+                if (penguin.Left + penguin.Width  > o.Left && penguin.Left + penguin.Width < o.Left + o.Width + penguin.Width && penguin.Top + penguin.Height >= o.Top && penguin.Top < o.Top)
                 {
+
                     flag = true;
                 }
                 //kolizija na dolnata strana od preprekite
@@ -271,7 +254,76 @@ namespace SuperTux
                 }
             }
             //
-            
+
+            //kolizija so nekoja od preprekite koi go jadat
+            for(int i=eaters.Count-1; i>=0; i--)
+            {
+                PictureBox o = eaters[i];
+                bool flag = false;
+                //kolizija na desna ili leva strana od prepreka
+                if (penguin.Right > o.Left && penguin.Left < (o.Right - penguin.Width / 2) && penguin.Bottom > o.Top)
+                {
+                    flag = true;
+                }
+                else if (penguin.Left < o.Right && penguin.Right > (o.Right - penguin.Width / 2) && penguin.Bottom > o.Top)
+                {
+                    flag = true;
+                }
+                //kolizija na gornata strana od preprekite
+                else if (penguin.Left + penguin.Width > o.Left && penguin.Left + penguin.Width < o.Left + o.Width + penguin.Width && penguin.Top + penguin.Height >= o.Top && penguin.Top < o.Top)
+                {
+                    Point NewLocation = o.Location;
+                    eaters.Remove(o);
+                    screen1.Controls.Remove(o);
+                    Force = 0;
+                    PictureBox coin = new PictureBox();
+                    coin.Image = Resources.coin_0;
+                    coin.SizeMode = PictureBoxSizeMode.StretchImage;
+                    coin.Location = NewLocation;
+                    coin.Width = 41;
+                    coin.Height = 37;
+                    
+                    coin.BackColor = Color.Transparent;
+                    
+                    coins.Add(coin);
+                    screen1.Controls.Add(coin);
+
+                    penguin.Top -= 100;
+                    penguin.Left += 50;
+                    jump = true;
+                }
+                if (flag)
+                {
+                    Lifes -= 1;
+                    timerLife.Stop();
+                    Refresh();
+                    newGame();
+                }
+            }
+            //
+
+            //dvizenje i skokanje na pingvinot
+            if (right == true)
+                penguin.Left += 3;
+            if (left == true)
+                penguin.Left -= 3;
+
+            if (jump == true)
+            {
+                penguin.Top = penguin.Top - Force;
+                Force -= 1;
+            }
+
+            if (penguin.Top + penguin.Height >= (screen1.Height - mainPlatform.Height))
+            {
+                penguin.Top = screen1.Height - penguin.Height - mainPlatform.Height;
+                jump = false;
+            }
+            else
+            {
+                penguin.Top += 5;
+            }
+            //
 
         }
 
@@ -350,6 +402,10 @@ namespace SuperTux
             ++generateBall;
             ballsDoc.Move(Width);
         }
-        
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -86,6 +86,11 @@ namespace SuperTux
                 }
             }
         }
-        
+
+        private void btnHow_Click(object sender, EventArgs e)
+        {
+            HowToPlay form = new HowToPlay();
+            form.ShowDialog();
+        }
     }
 }

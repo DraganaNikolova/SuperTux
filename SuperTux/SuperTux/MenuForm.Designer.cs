@@ -46,6 +46,7 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.timerFlake = new System.Windows.Forms.Timer(this.components);
+            this.btnHow = new System.Windows.Forms.Button();
             this.screen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flake8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flake7)).BeginInit();
@@ -165,12 +166,13 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnHow);
             this.panel1.Controls.Add(this.btnHard);
             this.panel1.Controls.Add(this.btnEasy);
             this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Location = new System.Drawing.Point(489, 302);
+            this.panel1.Location = new System.Drawing.Point(488, 263);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(323, 177);
+            this.panel1.Size = new System.Drawing.Size(323, 264);
             this.panel1.TabIndex = 2;
             // 
             // btnHard
@@ -180,7 +182,7 @@
             this.btnHard.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnHard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnHard.Font = new System.Drawing.Font("Lucida Console", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHard.Location = new System.Drawing.Point(103, 99);
+            this.btnHard.Location = new System.Drawing.Point(101, 96);
             this.btnHard.Name = "btnHard";
             this.btnHard.Size = new System.Drawing.Size(105, 43);
             this.btnHard.TabIndex = 4;
@@ -197,7 +199,7 @@
             this.btnEasy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEasy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnEasy.Font = new System.Drawing.Font("Lucida Console", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEasy.Location = new System.Drawing.Point(103, 24);
+            this.btnEasy.Location = new System.Drawing.Point(101, 33);
             this.btnEasy.Name = "btnEasy";
             this.btnEasy.Size = new System.Drawing.Size(105, 43);
             this.btnEasy.TabIndex = 3;
@@ -212,7 +214,7 @@
             this.btnStart.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnStart.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnStart.Font = new System.Drawing.Font("Lucida Console", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(24, 37);
+            this.btnStart.Location = new System.Drawing.Point(22, 36);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(281, 88);
             this.btnStart.TabIndex = 0;
@@ -224,7 +226,7 @@
             // 
             this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(506, 106);
+            this.pbLogo.Location = new System.Drawing.Point(505, 68);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(290, 160);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -241,6 +243,20 @@
             // 
             this.timerFlake.Interval = 700;
             this.timerFlake.Tick += new System.EventHandler(this.timerFlake_Tick);
+            // 
+            // btnHow
+            // 
+            this.btnHow.AutoEllipsis = true;
+            this.btnHow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHow.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnHow.Font = new System.Drawing.Font("Lucida Console", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHow.Location = new System.Drawing.Point(60, 160);
+            this.btnHow.Name = "btnHow";
+            this.btnHow.Size = new System.Drawing.Size(205, 62);
+            this.btnHow.TabIndex = 5;
+            this.btnHow.Text = "HOW TO PLAY";
+            this.btnHow.UseVisualStyleBackColor = false;
+            this.btnHow.Click += new System.EventHandler(this.btnHow_Click);
             // 
             // MenuForm
             // 
@@ -290,5 +306,6 @@
         private System.Windows.Forms.PictureBox flake6;
         private System.Windows.Forms.PictureBox flake8;
         private System.Windows.Forms.PictureBox flake7;
+        private System.Windows.Forms.Button btnHow;
     }
 }
