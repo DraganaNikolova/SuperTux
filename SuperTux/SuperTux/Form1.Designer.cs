@@ -31,16 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timerMovements = new System.Windows.Forms.Timer(this.components);
+            this.timerWindow = new System.Windows.Forms.Timer(this.components);
+            this.timerLife = new System.Windows.Forms.Timer(this.components);
+            this.timerCountLifes = new System.Windows.Forms.Timer(this.components);
+            this.timerBalls = new System.Windows.Forms.Timer(this.components);
+            this.timerSpike = new System.Windows.Forms.Timer(this.components);
+            this.screen1 = new System.Windows.Forms.Panel();
+            this.obstacle4 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblLifes = new System.Windows.Forms.Label();
             this.lblCoins = new System.Windows.Forms.Label();
-            this.timerWindow = new System.Windows.Forms.Timer(this.components);
-            this.timerLife = new System.Windows.Forms.Timer(this.components);
-            this.screen1 = new System.Windows.Forms.Panel();
             this.mainPlatform = new System.Windows.Forms.PictureBox();
             this.obstacle2 = new System.Windows.Forms.PictureBox();
-            this.obstacle1 = new System.Windows.Forms.PictureBox();
+            this.eater2 = new System.Windows.Forms.PictureBox();
             this.block7 = new System.Windows.Forms.PictureBox();
             this.block6 = new System.Windows.Forms.PictureBox();
             this.block3 = new System.Windows.Forms.PictureBox();
@@ -51,11 +55,9 @@
             this.coin12 = new System.Windows.Forms.PictureBox();
             this.coin11 = new System.Windows.Forms.PictureBox();
             this.obstacle3 = new System.Windows.Forms.PictureBox();
-            this.GOAL = new System.Windows.Forms.PictureBox();
             this.coin10 = new System.Windows.Forms.PictureBox();
             this.coin9 = new System.Windows.Forms.PictureBox();
             this.coin8 = new System.Windows.Forms.PictureBox();
-            this.eater2 = new System.Windows.Forms.PictureBox();
             this.eater1 = new System.Windows.Forms.PictureBox();
             this.coin7 = new System.Windows.Forms.PictureBox();
             this.coin6 = new System.Windows.Forms.PictureBox();
@@ -65,13 +67,19 @@
             this.coin2 = new System.Windows.Forms.PictureBox();
             this.coin1 = new System.Windows.Forms.PictureBox();
             this.penguin = new System.Windows.Forms.PictureBox();
-            this.timerCountLifes = new System.Windows.Forms.Timer(this.components);
-            this.timerBalls = new System.Windows.Forms.Timer(this.components);
-            this.groupBox1.SuspendLayout();
+            this.GOAL = new System.Windows.Forms.PictureBox();
+            this.obstacle1 = new System.Windows.Forms.PictureBox();
+            this.obstacle5 = new System.Windows.Forms.PictureBox();
+            this.obstacle6 = new System.Windows.Forms.PictureBox();
+            this.obstacle7 = new System.Windows.Forms.PictureBox();
+            this.coin14 = new System.Windows.Forms.PictureBox();
+            this.coin13 = new System.Windows.Forms.PictureBox();
             this.screen1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle4)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPlatform)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eater2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.block7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.block6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.block3)).BeginInit();
@@ -82,11 +90,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.coin12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GOAL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eater2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eater1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin6)).BeginInit();
@@ -96,6 +102,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.coin2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.penguin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GOAL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin13)).BeginInit();
             this.SuspendLayout();
             // 
             // timerMovements
@@ -104,17 +117,96 @@
             this.timerMovements.Interval = 1;
             this.timerMovements.Tick += new System.EventHandler(this.timerMovements_Tick);
             // 
+            // timerWindow
+            // 
+            this.timerWindow.Interval = 1;
+            // 
+            // timerLife
+            // 
+            this.timerLife.Tick += new System.EventHandler(this.timerLife_Tick);
+            // 
+            // timerCountLifes
+            // 
+            this.timerCountLifes.Tick += new System.EventHandler(this.timerCountLifes_Tick);
+            // 
+            // timerBalls
+            // 
+            this.timerBalls.Tick += new System.EventHandler(this.timerBalls_Tick);
+            // 
+            // timerSpike
+            // 
+            this.timerSpike.Interval = 2000;
+            this.timerSpike.Tick += new System.EventHandler(this.timerSpike_Tick);
+            // 
+            // screen1
+            // 
+            this.screen1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("screen1.BackgroundImage")));
+            this.screen1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.screen1.Controls.Add(this.coin14);
+            this.screen1.Controls.Add(this.coin13);
+            this.screen1.Controls.Add(this.obstacle4);
+            this.screen1.Controls.Add(this.groupBox1);
+            this.screen1.Controls.Add(this.mainPlatform);
+            this.screen1.Controls.Add(this.obstacle2);
+            this.screen1.Controls.Add(this.eater2);
+            this.screen1.Controls.Add(this.block7);
+            this.screen1.Controls.Add(this.block6);
+            this.screen1.Controls.Add(this.block3);
+            this.screen1.Controls.Add(this.block1);
+            this.screen1.Controls.Add(this.block2);
+            this.screen1.Controls.Add(this.block5);
+            this.screen1.Controls.Add(this.block4);
+            this.screen1.Controls.Add(this.coin12);
+            this.screen1.Controls.Add(this.coin11);
+            this.screen1.Controls.Add(this.obstacle3);
+            this.screen1.Controls.Add(this.coin10);
+            this.screen1.Controls.Add(this.coin9);
+            this.screen1.Controls.Add(this.coin8);
+            this.screen1.Controls.Add(this.eater1);
+            this.screen1.Controls.Add(this.coin7);
+            this.screen1.Controls.Add(this.coin6);
+            this.screen1.Controls.Add(this.coin5);
+            this.screen1.Controls.Add(this.coin4);
+            this.screen1.Controls.Add(this.coin3);
+            this.screen1.Controls.Add(this.coin2);
+            this.screen1.Controls.Add(this.coin1);
+            this.screen1.Controls.Add(this.penguin);
+            this.screen1.Controls.Add(this.obstacle1);
+            this.screen1.Controls.Add(this.obstacle5);
+            this.screen1.Controls.Add(this.obstacle6);
+            this.screen1.Controls.Add(this.obstacle7);
+            this.screen1.Controls.Add(this.GOAL);
+            this.screen1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.screen1.Location = new System.Drawing.Point(0, 0);
+            this.screen1.Margin = new System.Windows.Forms.Padding(0);
+            this.screen1.Name = "screen1";
+            this.screen1.Size = new System.Drawing.Size(1263, 657);
+            this.screen1.TabIndex = 1;
+            this.screen1.Paint += new System.Windows.Forms.PaintEventHandler(this.screen1_Paint);
+            // 
+            // obstacle4
+            // 
+            this.obstacle4.BackColor = System.Drawing.Color.Transparent;
+            this.obstacle4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.obstacle4.Image = ((System.Drawing.Image)(resources.GetObject("obstacle4.Image")));
+            this.obstacle4.Location = new System.Drawing.Point(1060, 290);
+            this.obstacle4.Name = "obstacle4";
+            this.obstacle4.Size = new System.Drawing.Size(61, 52);
+            this.obstacle4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.obstacle4.TabIndex = 32;
+            this.obstacle4.TabStop = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.lblTime);
             this.groupBox1.Controls.Add(this.lblLifes);
             this.groupBox1.Controls.Add(this.lblCoins);
-            this.groupBox1.Location = new System.Drawing.Point(338, 21);
+            this.groupBox1.Location = new System.Drawing.Point(320, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(621, 74);
+            this.groupBox1.Size = new System.Drawing.Size(621, 76);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             // 
@@ -151,54 +243,6 @@
             this.lblCoins.TabIndex = 8;
             this.lblCoins.Text = "COINS: ";
             // 
-            // timerWindow
-            // 
-            this.timerWindow.Interval = 1;
-            // 
-            // timerLife
-            // 
-            this.timerLife.Tick += new System.EventHandler(this.timerLife_Tick);
-            // 
-            // screen1
-            // 
-            this.screen1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("screen1.BackgroundImage")));
-            this.screen1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.screen1.Controls.Add(this.mainPlatform);
-            this.screen1.Controls.Add(this.obstacle2);
-            this.screen1.Controls.Add(this.obstacle1);
-            this.screen1.Controls.Add(this.groupBox1);
-            this.screen1.Controls.Add(this.block7);
-            this.screen1.Controls.Add(this.block6);
-            this.screen1.Controls.Add(this.block3);
-            this.screen1.Controls.Add(this.block1);
-            this.screen1.Controls.Add(this.block2);
-            this.screen1.Controls.Add(this.block5);
-            this.screen1.Controls.Add(this.block4);
-            this.screen1.Controls.Add(this.coin12);
-            this.screen1.Controls.Add(this.coin11);
-            this.screen1.Controls.Add(this.obstacle3);
-            this.screen1.Controls.Add(this.GOAL);
-            this.screen1.Controls.Add(this.coin10);
-            this.screen1.Controls.Add(this.coin9);
-            this.screen1.Controls.Add(this.coin8);
-            this.screen1.Controls.Add(this.eater2);
-            this.screen1.Controls.Add(this.eater1);
-            this.screen1.Controls.Add(this.coin7);
-            this.screen1.Controls.Add(this.coin6);
-            this.screen1.Controls.Add(this.coin5);
-            this.screen1.Controls.Add(this.coin4);
-            this.screen1.Controls.Add(this.coin3);
-            this.screen1.Controls.Add(this.coin2);
-            this.screen1.Controls.Add(this.coin1);
-            this.screen1.Controls.Add(this.penguin);
-            this.screen1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.screen1.Location = new System.Drawing.Point(0, 0);
-            this.screen1.Margin = new System.Windows.Forms.Padding(0);
-            this.screen1.Name = "screen1";
-            this.screen1.Size = new System.Drawing.Size(1263, 657);
-            this.screen1.TabIndex = 1;
-            this.screen1.Paint += new System.Windows.Forms.PaintEventHandler(this.screen1_Paint);
-            // 
             // mainPlatform
             // 
             this.mainPlatform.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -226,17 +270,17 @@
             this.obstacle2.TabIndex = 22;
             this.obstacle2.TabStop = false;
             // 
-            // obstacle1
+            // eater2
             // 
-            this.obstacle1.BackColor = System.Drawing.Color.Transparent;
-            this.obstacle1.Image = ((System.Drawing.Image)(resources.GetObject("obstacle1.Image")));
-            this.obstacle1.Location = new System.Drawing.Point(302, 501);
-            this.obstacle1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.obstacle1.Name = "obstacle1";
-            this.obstacle1.Size = new System.Drawing.Size(113, 91);
-            this.obstacle1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.obstacle1.TabIndex = 12;
-            this.obstacle1.TabStop = false;
+            this.eater2.BackColor = System.Drawing.Color.Transparent;
+            this.eater2.Image = ((System.Drawing.Image)(resources.GetObject("eater2.Image")));
+            this.eater2.Location = new System.Drawing.Point(617, 131);
+            this.eater2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eater2.Name = "eater2";
+            this.eater2.Size = new System.Drawing.Size(50, 50);
+            this.eater2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eater2.TabIndex = 18;
+            this.eater2.TabStop = false;
             // 
             // block7
             // 
@@ -268,7 +312,7 @@
             this.block3.BackColor = System.Drawing.Color.Transparent;
             this.block3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("block3.BackgroundImage")));
             this.block3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.block3.Location = new System.Drawing.Point(692, 485);
+            this.block3.Location = new System.Drawing.Point(702, 485);
             this.block3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.block3.Name = "block3";
             this.block3.Size = new System.Drawing.Size(197, 42);
@@ -283,7 +327,7 @@
             this.block1.Location = new System.Drawing.Point(12, 485);
             this.block1.Margin = new System.Windows.Forms.Padding(0);
             this.block1.Name = "block1";
-            this.block1.Size = new System.Drawing.Size(284, 42);
+            this.block1.Size = new System.Drawing.Size(247, 42);
             this.block1.TabIndex = 2;
             this.block1.TabStop = false;
             // 
@@ -292,7 +336,7 @@
             this.block2.BackColor = System.Drawing.Color.Transparent;
             this.block2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("block2.BackgroundImage")));
             this.block2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.block2.Location = new System.Drawing.Point(424, 485);
+            this.block2.Location = new System.Drawing.Point(411, 485);
             this.block2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.block2.Name = "block2";
             this.block2.Size = new System.Drawing.Size(206, 42);
@@ -317,7 +361,7 @@
             this.block4.BackColor = System.Drawing.Color.Transparent;
             this.block4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("block4.BackgroundImage")));
             this.block4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.block4.Location = new System.Drawing.Point(302, 354);
+            this.block4.Location = new System.Drawing.Point(302, 329);
             this.block4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.block4.Name = "block4";
             this.block4.Size = new System.Drawing.Size(78, 42);
@@ -361,17 +405,6 @@
             this.obstacle3.TabIndex = 29;
             this.obstacle3.TabStop = false;
             // 
-            // GOAL
-            // 
-            this.GOAL.BackColor = System.Drawing.Color.Transparent;
-            this.GOAL.Image = ((System.Drawing.Image)(resources.GetObject("GOAL.Image")));
-            this.GOAL.Location = new System.Drawing.Point(1166, 242);
-            this.GOAL.Name = "GOAL";
-            this.GOAL.Size = new System.Drawing.Size(97, 118);
-            this.GOAL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.GOAL.TabIndex = 27;
-            this.GOAL.TabStop = false;
-            // 
             // coin10
             // 
             this.coin10.BackColor = System.Drawing.Color.Transparent;
@@ -408,23 +441,11 @@
             this.coin8.TabIndex = 24;
             this.coin8.TabStop = false;
             // 
-            // eater2
-            // 
-            this.eater2.BackColor = System.Drawing.Color.Transparent;
-            this.eater2.Image = ((System.Drawing.Image)(resources.GetObject("eater2.Image")));
-            this.eater2.Location = new System.Drawing.Point(628, 194);
-            this.eater2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.eater2.Name = "eater2";
-            this.eater2.Size = new System.Drawing.Size(50, 50);
-            this.eater2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.eater2.TabIndex = 18;
-            this.eater2.TabStop = false;
-            // 
             // eater1
             // 
             this.eater1.BackColor = System.Drawing.Color.Transparent;
             this.eater1.Image = ((System.Drawing.Image)(resources.GetObject("eater1.Image")));
-            this.eater1.Location = new System.Drawing.Point(636, 512);
+            this.eater1.Location = new System.Drawing.Point(636, 501);
             this.eater1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eater1.Name = "eater1";
             this.eater1.Size = new System.Drawing.Size(50, 50);
@@ -436,7 +457,7 @@
             // 
             this.coin7.BackColor = System.Drawing.Color.Transparent;
             this.coin7.Image = ((System.Drawing.Image)(resources.GetObject("coin7.Image")));
-            this.coin7.Location = new System.Drawing.Point(320, 200);
+            this.coin7.Location = new System.Drawing.Point(320, 175);
             this.coin7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin7.Name = "coin7";
             this.coin7.Size = new System.Drawing.Size(41, 37);
@@ -448,7 +469,7 @@
             // 
             this.coin6.BackColor = System.Drawing.Color.Transparent;
             this.coin6.Image = ((System.Drawing.Image)(resources.GetObject("coin6.Image")));
-            this.coin6.Location = new System.Drawing.Point(319, 253);
+            this.coin6.Location = new System.Drawing.Point(319, 228);
             this.coin6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin6.Name = "coin6";
             this.coin6.Size = new System.Drawing.Size(41, 37);
@@ -460,7 +481,7 @@
             // 
             this.coin5.BackColor = System.Drawing.Color.Transparent;
             this.coin5.Image = ((System.Drawing.Image)(resources.GetObject("coin5.Image")));
-            this.coin5.Location = new System.Drawing.Point(319, 305);
+            this.coin5.Location = new System.Drawing.Point(319, 280);
             this.coin5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin5.Name = "coin5";
             this.coin5.Size = new System.Drawing.Size(41, 37);
@@ -496,7 +517,7 @@
             // 
             this.coin2.BackColor = System.Drawing.Color.Transparent;
             this.coin2.Image = ((System.Drawing.Image)(resources.GetObject("coin2.Image")));
-            this.coin2.Location = new System.Drawing.Point(238, 426);
+            this.coin2.Location = new System.Drawing.Point(208, 426);
             this.coin2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin2.Name = "coin2";
             this.coin2.Size = new System.Drawing.Size(41, 37);
@@ -519,8 +540,8 @@
             // penguin
             // 
             this.penguin.BackColor = System.Drawing.Color.Transparent;
-            this.penguin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("penguin.BackgroundImage")));
             this.penguin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.penguin.Image = global::SuperTux.Properties.Resources.stand_0;
             this.penguin.Location = new System.Drawing.Point(12, 342);
             this.penguin.Margin = new System.Windows.Forms.Padding(0);
             this.penguin.Name = "penguin";
@@ -529,13 +550,86 @@
             this.penguin.TabIndex = 0;
             this.penguin.TabStop = false;
             // 
-            // timerCountLifes
+            // GOAL
             // 
-            this.timerCountLifes.Tick += new System.EventHandler(this.timerCountLifes_Tick);
+            this.GOAL.BackColor = System.Drawing.Color.Transparent;
+            this.GOAL.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GOAL.BackgroundImage")));
+            this.GOAL.Image = ((System.Drawing.Image)(resources.GetObject("GOAL.Image")));
+            this.GOAL.Location = new System.Drawing.Point(1166, 242);
+            this.GOAL.Name = "GOAL";
+            this.GOAL.Size = new System.Drawing.Size(97, 118);
+            this.GOAL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.GOAL.TabIndex = 27;
+            this.GOAL.TabStop = false;
             // 
-            // timerBalls
+            // obstacle1
             // 
-            this.timerBalls.Tick += new System.EventHandler(this.timerBalls_Tick);
+            this.obstacle1.BackColor = System.Drawing.Color.Transparent;
+            this.obstacle1.Image = ((System.Drawing.Image)(resources.GetObject("obstacle1.Image")));
+            this.obstacle1.Location = new System.Drawing.Point(281, 501);
+            this.obstacle1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.obstacle1.Name = "obstacle1";
+            this.obstacle1.Size = new System.Drawing.Size(113, 91);
+            this.obstacle1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.obstacle1.TabIndex = 12;
+            this.obstacle1.TabStop = false;
+            // 
+            // obstacle5
+            // 
+            this.obstacle5.BackColor = System.Drawing.Color.Transparent;
+            this.obstacle5.Image = global::SuperTux.Properties.Resources.one;
+            this.obstacle5.Location = new System.Drawing.Point(759, 146);
+            this.obstacle5.Name = "obstacle5";
+            this.obstacle5.Size = new System.Drawing.Size(43, 116);
+            this.obstacle5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.obstacle5.TabIndex = 33;
+            this.obstacle5.TabStop = false;
+            // 
+            // obstacle6
+            // 
+            this.obstacle6.BackColor = System.Drawing.Color.Transparent;
+            this.obstacle6.Image = global::SuperTux.Properties.Resources.one;
+            this.obstacle6.Location = new System.Drawing.Point(506, 146);
+            this.obstacle6.Name = "obstacle6";
+            this.obstacle6.Size = new System.Drawing.Size(43, 116);
+            this.obstacle6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.obstacle6.TabIndex = 34;
+            this.obstacle6.TabStop = false;
+            // 
+            // obstacle7
+            // 
+            this.obstacle7.BackColor = System.Drawing.Color.Transparent;
+            this.obstacle7.Image = global::SuperTux.Properties.Resources.one;
+            this.obstacle7.Location = new System.Drawing.Point(847, 383);
+            this.obstacle7.Name = "obstacle7";
+            this.obstacle7.Size = new System.Drawing.Size(43, 116);
+            this.obstacle7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.obstacle7.TabIndex = 35;
+            this.obstacle7.TabStop = false;
+            // 
+            // coin14
+            // 
+            this.coin14.BackColor = System.Drawing.Color.Transparent;
+            this.coin14.Image = ((System.Drawing.Image)(resources.GetObject("coin14.Image")));
+            this.coin14.Location = new System.Drawing.Point(657, 207);
+            this.coin14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.coin14.Name = "coin14";
+            this.coin14.Size = new System.Drawing.Size(41, 37);
+            this.coin14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin14.TabIndex = 37;
+            this.coin14.TabStop = false;
+            // 
+            // coin13
+            // 
+            this.coin13.BackColor = System.Drawing.Color.Transparent;
+            this.coin13.Image = ((System.Drawing.Image)(resources.GetObject("coin13.Image")));
+            this.coin13.Location = new System.Drawing.Point(597, 207);
+            this.coin13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.coin13.Name = "coin13";
+            this.coin13.Size = new System.Drawing.Size(41, 37);
+            this.coin13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin13.TabIndex = 36;
+            this.coin13.TabStop = false;
             // 
             // Form1
             // 
@@ -553,12 +647,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.screen1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle4)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.screen1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainPlatform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eater2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.block7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.block6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.block3)).EndInit();
@@ -569,11 +664,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.coin12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GOAL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eater2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eater1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin6)).EndInit();
@@ -583,6 +676,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.coin2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.penguin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GOAL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin13)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -625,6 +725,13 @@
         private System.Windows.Forms.Timer timerBalls;
         private System.Windows.Forms.PictureBox coin12;
         private System.Windows.Forms.PictureBox coin11;
+        private System.Windows.Forms.PictureBox obstacle4;
+        private System.Windows.Forms.Timer timerSpike;
+        private System.Windows.Forms.PictureBox obstacle5;
+        private System.Windows.Forms.PictureBox obstacle6;
+        private System.Windows.Forms.PictureBox obstacle7;
+        private System.Windows.Forms.PictureBox coin14;
+        private System.Windows.Forms.PictureBox coin13;
     }
 }
 
