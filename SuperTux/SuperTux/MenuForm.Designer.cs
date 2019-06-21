@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.timerFlake = new System.Windows.Forms.Timer(this.components);
             this.screen = new System.Windows.Forms.Panel();
             this.flake8 = new System.Windows.Forms.PictureBox();
             this.flake7 = new System.Windows.Forms.PictureBox();
@@ -40,13 +42,11 @@
             this.flake6 = new System.Windows.Forms.PictureBox();
             this.flake1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHow = new System.Windows.Forms.Button();
             this.btnHard = new System.Windows.Forms.Button();
             this.btnEasy = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.timerFlake = new System.Windows.Forms.Timer(this.components);
-            this.btnHow = new System.Windows.Forms.Button();
             this.screen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flake8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flake7)).BeginInit();
@@ -60,9 +60,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "mousecursor.png");
+            // 
+            // timerFlake
+            // 
+            this.timerFlake.Interval = 500;
+            this.timerFlake.Tick += new System.EventHandler(this.timerFlake_Tick);
+            // 
             // screen
             // 
-            this.screen.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.screen.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.screen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("screen.BackgroundImage")));
             this.screen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.screen.Controls.Add(this.flake8);
@@ -163,7 +174,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnHow);
@@ -174,6 +185,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(323, 264);
             this.panel1.TabIndex = 2;
+            // 
+            // btnHow
+            // 
+            this.btnHow.AutoEllipsis = true;
+            this.btnHow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHow.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnHow.Font = new System.Drawing.Font("Lucida Console", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHow.Location = new System.Drawing.Point(60, 160);
+            this.btnHow.Name = "btnHow";
+            this.btnHow.Size = new System.Drawing.Size(205, 62);
+            this.btnHow.TabIndex = 5;
+            this.btnHow.Text = "HOW TO PLAY";
+            this.btnHow.UseVisualStyleBackColor = false;
+            this.btnHow.Click += new System.EventHandler(this.btnHow_Click);
             // 
             // btnHard
             // 
@@ -224,39 +249,15 @@
             // 
             // pbLogo
             // 
+            this.pbLogo.BackColor = System.Drawing.Color.Transparent;
             this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(505, 68);
+            this.pbLogo.Location = new System.Drawing.Point(476, 58);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(290, 160);
+            this.pbLogo.Size = new System.Drawing.Size(346, 189);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 0;
             this.pbLogo.TabStop = false;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "mousecursor.png");
-            // 
-            // timerFlake
-            // 
-            this.timerFlake.Interval = 700;
-            this.timerFlake.Tick += new System.EventHandler(this.timerFlake_Tick);
-            // 
-            // btnHow
-            // 
-            this.btnHow.AutoEllipsis = true;
-            this.btnHow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnHow.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnHow.Font = new System.Drawing.Font("Lucida Console", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHow.Location = new System.Drawing.Point(60, 160);
-            this.btnHow.Name = "btnHow";
-            this.btnHow.Size = new System.Drawing.Size(205, 62);
-            this.btnHow.TabIndex = 5;
-            this.btnHow.Text = "HOW TO PLAY";
-            this.btnHow.UseVisualStyleBackColor = false;
-            this.btnHow.Click += new System.EventHandler(this.btnHow_Click);
             // 
             // MenuForm
             // 

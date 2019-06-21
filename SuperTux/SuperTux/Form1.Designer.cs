@@ -37,11 +37,12 @@
             this.timerBalls = new System.Windows.Forms.Timer(this.components);
             this.timerSpike = new System.Windows.Forms.Timer(this.components);
             this.screen1 = new System.Windows.Forms.Panel();
+            this.coin16 = new System.Windows.Forms.PictureBox();
+            this.coin15 = new System.Windows.Forms.PictureBox();
+            this.block8 = new System.Windows.Forms.PictureBox();
+            this.coin14 = new System.Windows.Forms.PictureBox();
+            this.coin13 = new System.Windows.Forms.PictureBox();
             this.obstacle4 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblLifes = new System.Windows.Forms.Label();
-            this.lblCoins = new System.Windows.Forms.Label();
             this.mainPlatform = new System.Windows.Forms.PictureBox();
             this.obstacle2 = new System.Windows.Forms.PictureBox();
             this.eater2 = new System.Windows.Forms.PictureBox();
@@ -67,16 +68,23 @@
             this.coin2 = new System.Windows.Forms.PictureBox();
             this.coin1 = new System.Windows.Forms.PictureBox();
             this.penguin = new System.Windows.Forms.PictureBox();
-            this.GOAL = new System.Windows.Forms.PictureBox();
             this.obstacle1 = new System.Windows.Forms.PictureBox();
             this.obstacle5 = new System.Windows.Forms.PictureBox();
             this.obstacle6 = new System.Windows.Forms.PictureBox();
             this.obstacle7 = new System.Windows.Forms.PictureBox();
-            this.coin14 = new System.Windows.Forms.PictureBox();
-            this.coin13 = new System.Windows.Forms.PictureBox();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblCoins = new System.Windows.Forms.Label();
+            this.lblLifes = new System.Windows.Forms.Label();
+            this.GOAL = new System.Windows.Forms.PictureBox();
+            this.obstacle8 = new System.Windows.Forms.PictureBox();
+            this.obstacle9 = new System.Windows.Forms.PictureBox();
             this.screen1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.coin16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.block8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle4)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPlatform)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eater2)).BeginInit();
@@ -102,13 +110,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.coin2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.penguin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GOAL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GOAL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle9)).BeginInit();
             this.SuspendLayout();
             // 
             // timerMovements
@@ -142,10 +150,12 @@
             // 
             this.screen1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("screen1.BackgroundImage")));
             this.screen1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.screen1.Controls.Add(this.coin16);
+            this.screen1.Controls.Add(this.coin15);
+            this.screen1.Controls.Add(this.block8);
             this.screen1.Controls.Add(this.coin14);
             this.screen1.Controls.Add(this.coin13);
             this.screen1.Controls.Add(this.obstacle4);
-            this.screen1.Controls.Add(this.groupBox1);
             this.screen1.Controls.Add(this.mainPlatform);
             this.screen1.Controls.Add(this.obstacle2);
             this.screen1.Controls.Add(this.eater2);
@@ -175,7 +185,12 @@
             this.screen1.Controls.Add(this.obstacle5);
             this.screen1.Controls.Add(this.obstacle6);
             this.screen1.Controls.Add(this.obstacle7);
+            this.screen1.Controls.Add(this.lblTime);
+            this.screen1.Controls.Add(this.lblCoins);
+            this.screen1.Controls.Add(this.lblLifes);
             this.screen1.Controls.Add(this.GOAL);
+            this.screen1.Controls.Add(this.obstacle8);
+            this.screen1.Controls.Add(this.obstacle9);
             this.screen1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.screen1.Location = new System.Drawing.Point(0, 0);
             this.screen1.Margin = new System.Windows.Forms.Padding(0);
@@ -183,6 +198,66 @@
             this.screen1.Size = new System.Drawing.Size(1263, 657);
             this.screen1.TabIndex = 1;
             this.screen1.Paint += new System.Windows.Forms.PaintEventHandler(this.screen1_Paint);
+            // 
+            // coin16
+            // 
+            this.coin16.BackColor = System.Drawing.Color.Transparent;
+            this.coin16.Image = ((System.Drawing.Image)(resources.GetObject("coin16.Image")));
+            this.coin16.Location = new System.Drawing.Point(112, 133);
+            this.coin16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.coin16.Name = "coin16";
+            this.coin16.Size = new System.Drawing.Size(41, 37);
+            this.coin16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin16.TabIndex = 40;
+            this.coin16.TabStop = false;
+            // 
+            // coin15
+            // 
+            this.coin15.BackColor = System.Drawing.Color.Transparent;
+            this.coin15.Image = ((System.Drawing.Image)(resources.GetObject("coin15.Image")));
+            this.coin15.Location = new System.Drawing.Point(52, 133);
+            this.coin15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.coin15.Name = "coin15";
+            this.coin15.Size = new System.Drawing.Size(41, 37);
+            this.coin15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin15.TabIndex = 39;
+            this.coin15.TabStop = false;
+            // 
+            // block8
+            // 
+            this.block8.BackColor = System.Drawing.Color.Transparent;
+            this.block8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("block8.BackgroundImage")));
+            this.block8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.block8.Location = new System.Drawing.Point(12, 192);
+            this.block8.Margin = new System.Windows.Forms.Padding(0);
+            this.block8.Name = "block8";
+            this.block8.Size = new System.Drawing.Size(247, 42);
+            this.block8.TabIndex = 38;
+            this.block8.TabStop = false;
+            // 
+            // coin14
+            // 
+            this.coin14.BackColor = System.Drawing.Color.Transparent;
+            this.coin14.Image = ((System.Drawing.Image)(resources.GetObject("coin14.Image")));
+            this.coin14.Location = new System.Drawing.Point(658, 239);
+            this.coin14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.coin14.Name = "coin14";
+            this.coin14.Size = new System.Drawing.Size(41, 37);
+            this.coin14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin14.TabIndex = 37;
+            this.coin14.TabStop = false;
+            // 
+            // coin13
+            // 
+            this.coin13.BackColor = System.Drawing.Color.Transparent;
+            this.coin13.Image = ((System.Drawing.Image)(resources.GetObject("coin13.Image")));
+            this.coin13.Location = new System.Drawing.Point(598, 239);
+            this.coin13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.coin13.Name = "coin13";
+            this.coin13.Size = new System.Drawing.Size(41, 37);
+            this.coin13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coin13.TabIndex = 36;
+            this.coin13.TabStop = false;
             // 
             // obstacle4
             // 
@@ -195,53 +270,6 @@
             this.obstacle4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.obstacle4.TabIndex = 32;
             this.obstacle4.TabStop = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.lblTime);
-            this.groupBox1.Controls.Add(this.lblLifes);
-            this.groupBox1.Controls.Add(this.lblCoins);
-            this.groupBox1.Location = new System.Drawing.Point(320, 11);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(621, 76);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Lucida Console", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(33, 30);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(85, 24);
-            this.lblTime.TabIndex = 10;
-            this.lblTime.Text = "TIME:";
-            // 
-            // lblLifes
-            // 
-            this.lblLifes.AutoSize = true;
-            this.lblLifes.Font = new System.Drawing.Font("Lucida Console", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLifes.ForeColor = System.Drawing.Color.White;
-            this.lblLifes.Location = new System.Drawing.Point(435, 30);
-            this.lblLifes.Name = "lblLifes";
-            this.lblLifes.Size = new System.Drawing.Size(100, 24);
-            this.lblLifes.TabIndex = 9;
-            this.lblLifes.Text = "LIFES:";
-            // 
-            // lblCoins
-            // 
-            this.lblCoins.AutoSize = true;
-            this.lblCoins.Font = new System.Drawing.Font("Lucida Console", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoins.ForeColor = System.Drawing.Color.White;
-            this.lblCoins.Location = new System.Drawing.Point(249, 30);
-            this.lblCoins.Name = "lblCoins";
-            this.lblCoins.Size = new System.Drawing.Size(115, 24);
-            this.lblCoins.TabIndex = 8;
-            this.lblCoins.Text = "COINS: ";
             // 
             // mainPlatform
             // 
@@ -262,10 +290,10 @@
             // 
             this.obstacle2.BackColor = System.Drawing.Color.Transparent;
             this.obstacle2.Image = ((System.Drawing.Image)(resources.GetObject("obstacle2.Image")));
-            this.obstacle2.Location = new System.Drawing.Point(1037, 501);
+            this.obstacle2.Location = new System.Drawing.Point(1031, 501);
             this.obstacle2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.obstacle2.Name = "obstacle2";
-            this.obstacle2.Size = new System.Drawing.Size(116, 91);
+            this.obstacle2.Size = new System.Drawing.Size(115, 91);
             this.obstacle2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.obstacle2.TabIndex = 22;
             this.obstacle2.TabStop = false;
@@ -274,7 +302,7 @@
             // 
             this.eater2.BackColor = System.Drawing.Color.Transparent;
             this.eater2.Image = ((System.Drawing.Image)(resources.GetObject("eater2.Image")));
-            this.eater2.Location = new System.Drawing.Point(617, 131);
+            this.eater2.Location = new System.Drawing.Point(621, 172);
             this.eater2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eater2.Name = "eater2";
             this.eater2.Size = new System.Drawing.Size(50, 50);
@@ -287,10 +315,10 @@
             this.block7.BackColor = System.Drawing.Color.Transparent;
             this.block7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("block7.BackgroundImage")));
             this.block7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.block7.Location = new System.Drawing.Point(1147, 354);
+            this.block7.Location = new System.Drawing.Point(1163, 342);
             this.block7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.block7.Name = "block7";
-            this.block7.Size = new System.Drawing.Size(116, 42);
+            this.block7.Size = new System.Drawing.Size(100, 42);
             this.block7.TabIndex = 28;
             this.block7.TabStop = false;
             // 
@@ -299,7 +327,7 @@
             this.block6.BackColor = System.Drawing.Color.Transparent;
             this.block6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("block6.BackgroundImage")));
             this.block6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.block6.Location = new System.Drawing.Point(941, 354);
+            this.block6.Location = new System.Drawing.Point(940, 342);
             this.block6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.block6.Name = "block6";
             this.block6.Size = new System.Drawing.Size(97, 42);
@@ -349,7 +377,7 @@
             this.block5.BackColor = System.Drawing.Color.Transparent;
             this.block5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("block5.BackgroundImage")));
             this.block5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.block5.Location = new System.Drawing.Point(482, 248);
+            this.block5.Location = new System.Drawing.Point(483, 280);
             this.block5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.block5.Name = "block5";
             this.block5.Size = new System.Drawing.Size(355, 42);
@@ -361,7 +389,7 @@
             this.block4.BackColor = System.Drawing.Color.Transparent;
             this.block4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("block4.BackgroundImage")));
             this.block4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.block4.Location = new System.Drawing.Point(302, 329);
+            this.block4.Location = new System.Drawing.Point(303, 351);
             this.block4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.block4.Name = "block4";
             this.block4.Size = new System.Drawing.Size(78, 42);
@@ -396,11 +424,10 @@
             // 
             this.obstacle3.BackColor = System.Drawing.Color.Transparent;
             this.obstacle3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.obstacle3.Image = ((System.Drawing.Image)(resources.GetObject("obstacle3.Image")));
-            this.obstacle3.Location = new System.Drawing.Point(968, 512);
+            this.obstacle3.Location = new System.Drawing.Point(955, 512);
             this.obstacle3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.obstacle3.Name = "obstacle3";
-            this.obstacle3.Size = new System.Drawing.Size(249, 80);
+            this.obstacle3.Size = new System.Drawing.Size(101, 80);
             this.obstacle3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.obstacle3.TabIndex = 29;
             this.obstacle3.TabStop = false;
@@ -409,7 +436,7 @@
             // 
             this.coin10.BackColor = System.Drawing.Color.Transparent;
             this.coin10.Image = ((System.Drawing.Image)(resources.GetObject("coin10.Image")));
-            this.coin10.Location = new System.Drawing.Point(968, 200);
+            this.coin10.Location = new System.Drawing.Point(969, 185);
             this.coin10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin10.Name = "coin10";
             this.coin10.Size = new System.Drawing.Size(41, 37);
@@ -421,7 +448,7 @@
             // 
             this.coin9.BackColor = System.Drawing.Color.Transparent;
             this.coin9.Image = ((System.Drawing.Image)(resources.GetObject("coin9.Image")));
-            this.coin9.Location = new System.Drawing.Point(967, 253);
+            this.coin9.Location = new System.Drawing.Point(968, 238);
             this.coin9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin9.Name = "coin9";
             this.coin9.Size = new System.Drawing.Size(41, 37);
@@ -433,7 +460,7 @@
             // 
             this.coin8.BackColor = System.Drawing.Color.Transparent;
             this.coin8.Image = ((System.Drawing.Image)(resources.GetObject("coin8.Image")));
-            this.coin8.Location = new System.Drawing.Point(967, 305);
+            this.coin8.Location = new System.Drawing.Point(968, 290);
             this.coin8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin8.Name = "coin8";
             this.coin8.Size = new System.Drawing.Size(41, 37);
@@ -457,7 +484,7 @@
             // 
             this.coin7.BackColor = System.Drawing.Color.Transparent;
             this.coin7.Image = ((System.Drawing.Image)(resources.GetObject("coin7.Image")));
-            this.coin7.Location = new System.Drawing.Point(320, 175);
+            this.coin7.Location = new System.Drawing.Point(321, 197);
             this.coin7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin7.Name = "coin7";
             this.coin7.Size = new System.Drawing.Size(41, 37);
@@ -469,7 +496,7 @@
             // 
             this.coin6.BackColor = System.Drawing.Color.Transparent;
             this.coin6.Image = ((System.Drawing.Image)(resources.GetObject("coin6.Image")));
-            this.coin6.Location = new System.Drawing.Point(319, 228);
+            this.coin6.Location = new System.Drawing.Point(320, 250);
             this.coin6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin6.Name = "coin6";
             this.coin6.Size = new System.Drawing.Size(41, 37);
@@ -481,7 +508,7 @@
             // 
             this.coin5.BackColor = System.Drawing.Color.Transparent;
             this.coin5.Image = ((System.Drawing.Image)(resources.GetObject("coin5.Image")));
-            this.coin5.Location = new System.Drawing.Point(319, 280);
+            this.coin5.Location = new System.Drawing.Point(320, 302);
             this.coin5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coin5.Name = "coin5";
             this.coin5.Size = new System.Drawing.Size(41, 37);
@@ -542,25 +569,13 @@
             this.penguin.BackColor = System.Drawing.Color.Transparent;
             this.penguin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.penguin.Image = global::SuperTux.Properties.Resources.stand_0;
-            this.penguin.Location = new System.Drawing.Point(12, 342);
+            this.penguin.Location = new System.Drawing.Point(88, 366);
             this.penguin.Margin = new System.Windows.Forms.Padding(0);
             this.penguin.Name = "penguin";
             this.penguin.Size = new System.Drawing.Size(78, 97);
             this.penguin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.penguin.TabIndex = 0;
             this.penguin.TabStop = false;
-            // 
-            // GOAL
-            // 
-            this.GOAL.BackColor = System.Drawing.Color.Transparent;
-            this.GOAL.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GOAL.BackgroundImage")));
-            this.GOAL.Image = ((System.Drawing.Image)(resources.GetObject("GOAL.Image")));
-            this.GOAL.Location = new System.Drawing.Point(1166, 242);
-            this.GOAL.Name = "GOAL";
-            this.GOAL.Size = new System.Drawing.Size(97, 118);
-            this.GOAL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.GOAL.TabIndex = 27;
-            this.GOAL.TabStop = false;
             // 
             // obstacle1
             // 
@@ -578,7 +593,7 @@
             // 
             this.obstacle5.BackColor = System.Drawing.Color.Transparent;
             this.obstacle5.Image = global::SuperTux.Properties.Resources.one;
-            this.obstacle5.Location = new System.Drawing.Point(759, 146);
+            this.obstacle5.Location = new System.Drawing.Point(760, 178);
             this.obstacle5.Name = "obstacle5";
             this.obstacle5.Size = new System.Drawing.Size(43, 116);
             this.obstacle5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -589,7 +604,7 @@
             // 
             this.obstacle6.BackColor = System.Drawing.Color.Transparent;
             this.obstacle6.Image = global::SuperTux.Properties.Resources.one;
-            this.obstacle6.Location = new System.Drawing.Point(506, 146);
+            this.obstacle6.Location = new System.Drawing.Point(507, 178);
             this.obstacle6.Name = "obstacle6";
             this.obstacle6.Size = new System.Drawing.Size(43, 116);
             this.obstacle6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -607,29 +622,74 @@
             this.obstacle7.TabIndex = 35;
             this.obstacle7.TabStop = false;
             // 
-            // coin14
+            // lblTime
             // 
-            this.coin14.BackColor = System.Drawing.Color.Transparent;
-            this.coin14.Image = ((System.Drawing.Image)(resources.GetObject("coin14.Image")));
-            this.coin14.Location = new System.Drawing.Point(657, 207);
-            this.coin14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.coin14.Name = "coin14";
-            this.coin14.Size = new System.Drawing.Size(41, 37);
-            this.coin14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.coin14.TabIndex = 37;
-            this.coin14.TabStop = false;
+            this.lblTime.AutoSize = true;
+            this.lblTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblTime.Font = new System.Drawing.Font("Lucida Console", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Location = new System.Drawing.Point(371, 21);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(85, 24);
+            this.lblTime.TabIndex = 10;
+            this.lblTime.Text = "TIME:";
             // 
-            // coin13
+            // lblCoins
             // 
-            this.coin13.BackColor = System.Drawing.Color.Transparent;
-            this.coin13.Image = ((System.Drawing.Image)(resources.GetObject("coin13.Image")));
-            this.coin13.Location = new System.Drawing.Point(597, 207);
-            this.coin13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.coin13.Name = "coin13";
-            this.coin13.Size = new System.Drawing.Size(41, 37);
-            this.coin13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.coin13.TabIndex = 36;
-            this.coin13.TabStop = false;
+            this.lblCoins.AutoSize = true;
+            this.lblCoins.BackColor = System.Drawing.Color.Transparent;
+            this.lblCoins.Font = new System.Drawing.Font("Lucida Console", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoins.ForeColor = System.Drawing.Color.White;
+            this.lblCoins.Location = new System.Drawing.Point(587, 21);
+            this.lblCoins.Name = "lblCoins";
+            this.lblCoins.Size = new System.Drawing.Size(115, 24);
+            this.lblCoins.TabIndex = 8;
+            this.lblCoins.Text = "COINS: ";
+            // 
+            // lblLifes
+            // 
+            this.lblLifes.AutoSize = true;
+            this.lblLifes.BackColor = System.Drawing.Color.Transparent;
+            this.lblLifes.Font = new System.Drawing.Font("Lucida Console", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLifes.ForeColor = System.Drawing.Color.White;
+            this.lblLifes.Location = new System.Drawing.Point(773, 21);
+            this.lblLifes.Name = "lblLifes";
+            this.lblLifes.Size = new System.Drawing.Size(100, 24);
+            this.lblLifes.TabIndex = 9;
+            this.lblLifes.Text = "LIFES:";
+            // 
+            // GOAL
+            // 
+            this.GOAL.BackColor = System.Drawing.Color.Transparent;
+            this.GOAL.Location = new System.Drawing.Point(1183, 280);
+            this.GOAL.Name = "GOAL";
+            this.GOAL.Size = new System.Drawing.Size(77, 62);
+            this.GOAL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.GOAL.TabIndex = 27;
+            this.GOAL.TabStop = false;
+            // 
+            // obstacle8
+            // 
+            this.obstacle8.BackColor = System.Drawing.Color.Transparent;
+            this.obstacle8.Image = global::SuperTux.Properties.Resources.one;
+            this.obstacle8.Location = new System.Drawing.Point(189, 89);
+            this.obstacle8.Name = "obstacle8";
+            this.obstacle8.Size = new System.Drawing.Size(43, 116);
+            this.obstacle8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.obstacle8.TabIndex = 41;
+            this.obstacle8.TabStop = false;
+            // 
+            // obstacle9
+            // 
+            this.obstacle9.BackColor = System.Drawing.Color.Transparent;
+            this.obstacle9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.obstacle9.Location = new System.Drawing.Point(1120, 512);
+            this.obstacle9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.obstacle9.Name = "obstacle9";
+            this.obstacle9.Size = new System.Drawing.Size(101, 80);
+            this.obstacle9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.obstacle9.TabIndex = 42;
+            this.obstacle9.TabStop = false;
             // 
             // Form1
             // 
@@ -648,9 +708,13 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.screen1.ResumeLayout(false);
+            this.screen1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.coin16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.block8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coin13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle4)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainPlatform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eater2)).EndInit();
@@ -676,13 +740,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.coin2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coin1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.penguin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GOAL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obstacle7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coin13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GOAL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obstacle9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -694,7 +758,6 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblLifes;
         private System.Windows.Forms.Timer timerLife;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel screen1;
         private System.Windows.Forms.PictureBox coin7;
         private System.Windows.Forms.PictureBox coin6;
@@ -732,6 +795,11 @@
         private System.Windows.Forms.PictureBox obstacle7;
         private System.Windows.Forms.PictureBox coin14;
         private System.Windows.Forms.PictureBox coin13;
+        private System.Windows.Forms.PictureBox block8;
+        private System.Windows.Forms.PictureBox coin16;
+        private System.Windows.Forms.PictureBox coin15;
+        private System.Windows.Forms.PictureBox obstacle8;
+        private System.Windows.Forms.PictureBox obstacle9;
     }
 }
 

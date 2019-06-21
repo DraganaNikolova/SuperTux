@@ -43,6 +43,7 @@ namespace SuperTux
             btnStart.Hide();
             btnEasy.Visible = true;
             btnHard.Visible = true;
+            btnEasy.Focus();
         }
 
         private void btnEasy_Click(object sender, EventArgs e)

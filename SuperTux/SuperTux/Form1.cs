@@ -93,6 +93,7 @@ namespace SuperTux
             blocks.Add(block5);
             blocks.Add(block6);
             blocks.Add(block7);
+            blocks.Add(block8);
 
             coins.Add(coin1);
             coins.Add(coin2);
@@ -108,11 +109,14 @@ namespace SuperTux
             coins.Add(coin12);
             coins.Add(coin13);
             coins.Add(coin14);
+            coins.Add(coin15);
+            coins.Add(coin16);
 
             obstacles.Add(obstacle1);
             obstacles.Add(obstacle2);
             obstacles.Add(obstacle3);
             obstacles.Add(obstacle4);
+            obstacles.Add(obstacle9);
 
             eaters.Add(eater1);
             eaters.Add(eater2);
@@ -124,6 +128,9 @@ namespace SuperTux
 
             newGame();
             timerBalls.Start();
+
+            obstacle3.Image = Image.FromFile("3q62.gif");
+            obstacle9.Image = Image.FromFile("3q62.gif");
 
             this.DoubleBuffered = true;
         }
@@ -144,6 +151,7 @@ namespace SuperTux
             obstacle5.Visible = false;
             obstacle6.Visible = false;
             obstacle7.Visible = false;
+            obstacle8.Visible = false;
             Invalidate();
 
             //timer koj odbrojuva 300 sekundi, koga ke pominat a ako pingvinot ne stignal do kukjata se gubi zhivot
@@ -164,12 +172,12 @@ namespace SuperTux
         {
             if (e.KeyCode == Keys.Right)
             {
-                if (penguin.Location.X <= 1300)
+                if (penguin.Location.X <= 900 && penguin.Location.Y >= 0 )
                     right = true;
                 penguin.Image = Resources.walk_0;
             }
                 
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.Left && penguin.Location.Y >= 0)
             { 
                 if(penguin.Location.X >= 5)
                     left = true;
@@ -180,7 +188,7 @@ namespace SuperTux
             {
                 if(e.KeyCode == Keys.Space || e.KeyCode == Keys.Up)
                 {
-                    if (penguin.Location.X >= 5 && penguin.Location.X <= 1300 )
+                    if (penguin.Location.X >= 5 && penguin.Location.X <= 900 && penguin.Location.Y >= 0)
                         jump = true;
                     Force = G;
                 }
@@ -194,16 +202,22 @@ namespace SuperTux
             {
                 left = false;
                 jump = false;
+                Force = -1;
             }
-            if(penguin.Location.X >= 1300 )
+            if(penguin.Location.X >= 900 )
             {
                 right = false;
                 jump = false;
+                
+            }
+            if(penguin.Location.Y <= 0)
+            {
+                Force = -1;
             }
             //
 
             //pingvinot stiga do kukjickata
-            if (penguin.Left > (GOAL.Left - penguin.Width) && penguin.Top >= GOAL.Top && NumberCoins >= 14)
+            if (penguin.Left > (GOAL.Left) && penguin.Top <= GOAL.Top && NumberCoins >= 16)
             {
                 timerMovements.Stop();
                 Win formp = new Win();
@@ -239,17 +253,6 @@ namespace SuperTux
             //kolizija so prepreki
             foreach (PictureBox p in blocks)
             {
-                /*
-                Rectangle r = new Rectangle();
-                r.Location = p.Location;
-                r.Size = p.Size;
-                
-                if (penguin.Bounds.IntersectsWith(r))
-                {
-                    if(p
-
-                }
-                */
                 //kolizija na desna ili leva strana od prepreka
                 if(penguin.Right > p.Left && penguin.Left < (p.Right - penguin.Width ) && penguin.Bottom < p.Bottom && penguin.Bottom > p.Top && penguin.Top < p.Bottom )
                 {
@@ -324,7 +327,7 @@ namespace SuperTux
                     coins.Add(coin);
                     screen1.Controls.Add(coin);
 
-                    penguin.Top -= 100;
+                    penguin.Top -= 80;
                     penguin.Left += 50;
                     jump = true;
                     flag = false;
@@ -335,44 +338,6 @@ namespace SuperTux
                 {
                     flag = true;
                 }
-                /*
-                //kolizija na desna ili leva strana od prepreka
-                if (penguin.Right > o.Left && penguin.Left < (o.Right - penguin.Width / 2) && penguin.Bottom > o.Top)
-                {
-                    flag = true;
-                }
-                else if (penguin.Left < o.Right && penguin.Right > (o.Right - penguin.Width / 2) && penguin.Bottom > o.Top)
-                {
-                    flag = true;
-                }
-                //kolizija na gornata strana od preprekite
-                else if (penguin.Left + penguin.Width > o.Left && penguin.Left + penguin.Width < o.Left + o.Width + penguin.Width && penguin.Top + penguin.Height >= o.Top && penguin.Top < o.Top)
-                {
-                    Point NewLocation = o.Location;
-                    eaters.Remove(o);
-                    screen1.Controls.Remove(o);
-                    Force = 0;
-                    PictureBox coin = new PictureBox();
-                    coin.Image = Resources.coin_0;
-                    coin.SizeMode = PictureBoxSizeMode.StretchImage;
-                    coin.Location = NewLocation;
-                    coin.Width = 41;
-                    coin.Height = 37;
-                    
-                    coin.BackColor = Color.Transparent;
-                    
-                    coins.Add(coin);
-                    screen1.Controls.Add(coin);
-
-                    penguin.Top -= 100;
-                    penguin.Left += 50;
-                    jump = true;
-                }
-                if(penguin.Left + penguin.Width > o.Left && penguin.Left + penguin.Width < o.Left + o.Width + penguin.Width && penguin.Top - o.Bottom <= 10 && penguin.Top - o.Top >= 10)
-                {
-                    flag = false;
-                }
-                */
                 if (flag)
                 {
                     Lifes -= 1;
@@ -531,6 +496,8 @@ namespace SuperTux
                 obstacles.Remove(obstacle6);
                 obstacle7.Visible = false;
                 obstacles.Remove(obstacle7);
+                obstacle8.Visible = false;
+                obstacles.Remove(obstacle8);
             }
             else
             {
@@ -540,6 +507,8 @@ namespace SuperTux
                 obstacles.Add(obstacle6);
                 obstacle7.Visible = true;
                 obstacles.Add(obstacle7);
+                obstacle8.Visible = true;
+                obstacles.Add(obstacle8);
             }
 
         }
