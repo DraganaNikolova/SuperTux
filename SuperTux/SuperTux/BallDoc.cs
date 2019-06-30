@@ -24,7 +24,7 @@ namespace SuperTux
             Balls.Add(b);
         }
 
-        public void Move(int width)
+        public void Move()
         {
             foreach (Ball b in Balls)
             {

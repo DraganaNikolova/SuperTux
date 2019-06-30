@@ -127,11 +127,11 @@ namespace SuperTux
             random2 = new Random();
 
             newGame();
-            timerBalls.Start();
-
+            
             obstacle3.Image = Image.FromFile("3q62.gif");
             obstacle9.Image = Image.FromFile("3q62.gif");
 
+            timerBalls.Start();
             this.DoubleBuffered = true;
         }
         
@@ -217,7 +217,7 @@ namespace SuperTux
             //
 
             //pingvinot stiga do kukjickata
-            if (penguin.Left > (GOAL.Left) && penguin.Top <= GOAL.Top && NumberCoins >= 16)
+            if (penguin.Left > (GOAL.Left) && penguin.Top <= GOAL.Top && coins.Count == 0)
             {
                 timerMovements.Stop();
                 Win formp = new Win();
@@ -369,7 +369,7 @@ namespace SuperTux
             {
                 penguin.Top += 5;
             }
-            //
+            //           
 
             foreach (PictureBox p in blocks)
             {
@@ -413,30 +413,11 @@ namespace SuperTux
             int y2 = random2.Next(-5, 5);
             eater1.Top += y2;
 
-            int y3 = random2.Next(-5, 5);
+            int y3 = random2.Next(-3, 3);
             eater2.Left += y3;
 
+                                
             
-            if(!flagP && obstacle4.Location.Y >= 80)
-            {
-                obstacle4.Top -= 10;
-                
-            }
-            else
-            {
-                flagP = true;
-                obstacle4.Top += 10;
-            }
-
-            if (flagP && obstacle4.Location.Y <= 360)
-            {
-                obstacle4.Top += 10;
-            }
-            else
-            {
-                flagP = false;
-            }
-
             lblTime.Text = "TIME: " + Seconds.ToString();
             lblLifes.Text = "LIFES: " + Lifes.ToString();
             
@@ -471,12 +452,34 @@ namespace SuperTux
         {
             if (generateBall % 10 == 0)
             {
-                int x = random.Next(2 * Ball.RADIUS, Height + (Ball.RADIUS * 2));
+                int x = random.Next(2 * Ball.RADIUS, this.Width - (Ball.RADIUS * 2));
                 int y = -Ball.RADIUS;
                 ballsDoc.AddBall(new Point(x, y));
             }
             ++generateBall;
-            ballsDoc.Move(Width);
+            ballsDoc.Move();
+
+            //dvizenje na prepreki
+            if (!flagP && obstacle4.Location.Y >= 80)
+            {
+                obstacle4.Top -= 2;
+            }
+            else
+            {
+                flagP = true;
+                obstacle4.Top += 2;
+            }
+
+            if (flagP && obstacle4.Location.Y <= 360)
+            {
+                obstacle4.Top += 2;
+
+            }
+            else
+            {
+                flagP = false;
+            }
+            //
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -512,5 +515,6 @@ namespace SuperTux
             }
 
         }
+        
     }
 }
